@@ -9,7 +9,7 @@ It was really fun building this, and if you're curious, you can look at the note
 
 The autograd system takes heavy inspiration from [Andrej Karpathy's micrograd](https://github.com/karpathy/micrograd), with an extension of some tensor operations.
 
-## Installation
+# Installation
 
 ```bash
 pip install git+https://github.com/Rihaan1344/arachnepy.git
@@ -61,4 +61,55 @@ Web
 | Web | Neural Network | WebRegressor, WebClassifier|
 | Retrace | Backward function | ` loss.retrace() / Spyder.retrace() `|
 | Spin | .fit() / training | ` web.spin(), loom.spin()` |
+
+## Quick Example
+
+```python
+from arachnepy import WebClassifier
+from sklearn.datasets import load_iris
+from sklearn.preprocessing import StandardScaler
+
+x, y = load_iris(return_X_y=True, as_frame=True)
+
+x_train, x_test, y_train, y_test = train_test_split(
+    x, y,
+    test_size = 0.33,
+    random_state = 11
+)
+
+x_scaler = StandardScaler()
+x_train, x_test = x_scaler.fit_transform(x_train.to_numpy()), x_scaler.transform(x_test.to_numpy())
+
+web = Web(
+    [x_train.shape[1], 10, 5, np.unique(y_train).size], learning_rate = 0.5, 
+    intialization_strength = 0.01, 
+    epochs = 1500
+    )
+
+web.spin(x_train, y_train.to_numpy())
+
+pred = web.predict(x_train)
+
+print("Train Accuracy:", np.mean(pred == y_train.to_numpy()))
+
+pred = web.predict(x_test)
+
+print("Test accuracy:", np.mean(pred == y_test.to_numpy()))
+```
+
+## Results
+
+Current implementation was tested on the Iris dataset:
+
+| Model | Dataset | Accuracy |
+|---------|---------|---------|
+| WebClassifier | Iris | 96% test accuracy, 100% train accuracy|
+| WebRegressor | Salary Prediction, synthetic dataset with ~250k records | ~97% R2 score after training on only 5k records(due to computational limitations)
+
+## Future Plans
+
+- Additional activation functions
+- Optimizers (Momentum, RMSProp, Adam)
+- More tensor operations(broadcasting!)
+- Convolutional layers
 
