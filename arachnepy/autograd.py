@@ -1,6 +1,8 @@
 import numpy as np
 class ScalarSpyder:
 
+    __array_priority__ = 1000
+
     def __init__(self, data, parents = None):
         self.data = data
         self.grad = 0
@@ -84,6 +86,9 @@ class ScalarSpyder:
 import numpy as np 
 import numbers 
 class Spyder:
+
+    __array_priority__ = 1000
+
     def __init__(self, data: np.ndarray, parents = None):
         self.data = np.asarray(data, dtype=float)
         self.grad = np.zeros_like(self.data)

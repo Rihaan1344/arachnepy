@@ -1,4 +1,4 @@
-from autograd import Spyder
+from arachnepy import Spyder
 import numpy as np
 class WebBClassifier: 
     def __init__(self, layer_size, learning_rate = 0.001, intialization_strength = 0.01, threshold = 0.5, random_state = 11, epochs = 1000):
