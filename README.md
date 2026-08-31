@@ -62,7 +62,7 @@ Web
 | Retrace | Backward function | ` loss.retrace() / Spyder.retrace() `|
 | Spin | .fit() / training | ` web.spin(), loom.spin()` |
 
-## Quick Example
+# Quick Example
 
 ```python
 from arachnepy import WebClassifier
@@ -97,16 +97,16 @@ pred = web.predict(x_test)
 print("Test accuracy:", np.mean(pred == y_test.to_numpy()))
 ```
 
-## Results
+# Results
 
-Current implementation was tested on the Iris dataset:
+Current implementation stats:
 
 | Model | Dataset | Accuracy |
 |---------|---------|---------|
 | WebClassifier | Iris | 96% test accuracy, 100% train accuracy|
 | WebRegressor | Salary Prediction, synthetic dataset with ~250k records | ~97% R2 score after training on only 5k records(due to computational limitations)
 
-## Future Plans
+# Future Plans
 
 - Additional activation functions
 - Optimizers (Momentum, RMSProp, Adam)
