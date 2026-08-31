@@ -3,7 +3,7 @@
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-*ArachnePy* is a small machine learning library I built to let me see and understand the inner working of how larger libraries like sklearn, pytorch, etc... work.
+*ArachnePy* is a small machine learning library I built to let me see and understand the inner workings behind larger machine-learning libraries like scikit-learn and PyTorch.
 
 It was really fun building this, and if you're curious, you can look at the notebooks(exp-nb1 and autograd, in that order) to see how I progressed from a simple sum function to a mini tensor autograd & multi-layer neural networks with softmax!
 
@@ -80,9 +80,9 @@ x_train, x_test, y_train, y_test = train_test_split(
 x_scaler = StandardScaler()
 x_train, x_test = x_scaler.fit_transform(x_train.to_numpy()), x_scaler.transform(x_test.to_numpy())
 
-web = Web(
+web = WebClassifier(
     [x_train.shape[1], 10, 5, np.unique(y_train).size], learning_rate = 0.5, 
-    intialization_strength = 0.01, 
+    initialization_strength = 0.01, 
     epochs = 1500
     )
 
