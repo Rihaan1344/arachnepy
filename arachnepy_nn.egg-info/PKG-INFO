@@ -1,6 +1,0 @@
-Metadata-Version: 2.4
-Name: arachnepy-nn
-Version: 0.1.0
-Summary: Tiny neural network library built from scratch
-Author: Rihaan
-Requires-Dist: numpy

@@ -1,7 +1,0 @@
-README.md
-pyproject.toml
-arachnepy_nn.egg-info/PKG-INFO
-arachnepy_nn.egg-info/SOURCES.txt
-arachnepy_nn.egg-info/dependency_links.txt
-arachnepy_nn.egg-info/requires.txt
-arachnepy_nn.egg-info/top_level.txt
