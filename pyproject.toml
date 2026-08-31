@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "arachnepy-nn"
+version = "0.1.0"
+description = "Tiny neural network library built from scratch"
+authors = [
+    {name = "Rihaan"}
+]
+dependencies = [
+    "numpy"
+]
